@@ -1,0 +1,12 @@
+CREATE TABLE `cerveja`.`usuario` ( `id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR NOT NULL , `email` VARCHAR NOT NULL , `senha` VARCHAR NOT NULL , PRIMARY KEY (`id`), UNIQUE (`email`)) ENGINE = InnoDB;
+
+CREATE TABLE `cerveja`. ( `id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(40) NOT NULL , `tipo` VARCHAR NOT NULL , `teorAlcolico` DOUBLE NOT NULL , `ibu` INT NOT NULL , `paisOrigem` VARCHAR(40) NOT NULL , `dataDesgustacao` DATE NOT NULL , `localDesgustacao` VARCHAR(50) NOT NULL , `avaliacao` DOUBLE NOT NULL , `comentarios` VARCHAR(500) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+create table degustacao(
+    id int PRIMARY KEY auto_increment,
+    idCerveja int NOT NULL,
+    idUsuario int not null,
+    foreign key(idCerveja) references cerveja(id),
+     foreign key(idUsuario) references usuario(id)
+    );
